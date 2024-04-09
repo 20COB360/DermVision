@@ -27,6 +27,7 @@ export default function Login({ navigation }) {
       navigation.navigate("Tabs");
     } catch (error) {
       console.log(error);
+      alert('SignIn failed '+ error.message);
     } finally {
       setLoading(false);
     }
