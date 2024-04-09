@@ -11,24 +11,18 @@ import {
   ImageBackground,
   useWindowDimensions,
 } from "react-native";
-import BlinkerText from "../components/BilnkerText";
+// import Text from "../components/BilnkerText";
 
 export default function Welcome({ navigation }) {
   const { height, width } = useWindowDimensions();
 
   return (
     <View style={styles.container}>
-      <Image
-        source={require("../static/w2.png")}
-        style={styles.gola}
-      />
-      <Image
-        source={require("../static/w1.png")}
-        style={styles.bulb}
-      />
+      <Image source={require("../static/w2.png")} style={styles.gola} />
+      <Image source={require("../static/w1.png")} style={styles.bulb} />
       <View style={[styles.bottom, { width: width * 0.9 }]}>
-        <BlinkerText style={styles.heroText}>Diagnose your skin </BlinkerText>
-        <BlinkerText style={styles.heroText}>in seconds.</BlinkerText>
+        <Text style={styles.heroText}>Diagnose your skin </Text>
+        <Text style={styles.heroText}>in seconds.</Text>
         <View style={styles.separator} />
 
         <Pressable
@@ -36,7 +30,7 @@ export default function Welcome({ navigation }) {
           style={styles.btn}
           onPress={() => navigation.navigate("SelectLanguage")}
         >
-          <BlinkerText style={styles.btnText}>GET STARTED</BlinkerText>
+          <Text style={styles.btnText}>GET STARTED</Text>
           <Image
             source={require("../assets/static/btn_arrow.png")}
             style={{ height: 38, width: 38, alignSelf: "center" }}
@@ -106,8 +100,8 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     backgroundColor: "white",
     flexDirection: "row",
-    justifyContent: 'space-between',
-    verticalAlign:'middle'
+    justifyContent: "space-between",
+    verticalAlign: "middle",
   },
   btnText: {
     color: "black",
