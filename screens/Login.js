@@ -8,13 +8,12 @@ import {
 } from "react-native";
 import React from "react";
 import { useState } from "react";
-import { firebase_auth } from "../firebaseConfig";
+// import { firebase_auth } from "../firebaseConfig";
 export default function Login({ navigation }) {
-
-  const [email, setEmail]=useState('');
-  const [password, setPassword]=useState('');
-  const [loading, setLoading]=useState('');
-  const auth = firebase_auth;
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState("");
+  // const auth = firebase_auth;
 
   const onPressFunction = () => console.log("pressed");
   return (
@@ -24,10 +23,7 @@ export default function Login({ navigation }) {
           <Text style={styles.toprightmsg}>Diagnosis at</Text>
           <Text style={styles.toprightmsg}>your Fingertips</Text>
         </View>
-        <Image
-          source={require("../static/l1.png")}
-          style={styles.img}
-        />
+        <Image source={require("../static/l1.png")} style={styles.img} />
       </View>
       <View style={styles.wrapper}>
         <View style={styles.greeting}>
@@ -39,19 +35,15 @@ export default function Login({ navigation }) {
         <View style={styles.loginForm}>
           <Text style={styles.detailinfo}>Please enter details</Text>
           <View style={styles.inputbox}>
-            <TextInput
-              style={styles.input}
-              placeholder="Email"
-              value={email}
-            />
+            <TextInput style={styles.input} placeholder="Email" value={email} />
             <TextInput
               style={styles.input}
               placeholder="Password"
-              value={text}
+              value={password}
             />
           </View>
           <View style={styles.miscbox}>
-            <BlinkerText style={styles.miscboxmsg}>Remember Me</BlinkerText>
+            <Text style={styles.miscboxmsg}>Remember Me</Text>
             <Text style={styles.miscboxmsg}>Forgot Password?</Text>
           </View>
 
