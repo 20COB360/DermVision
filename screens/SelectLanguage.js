@@ -6,7 +6,7 @@ export default function SelectLanguage({ navigation }) {
     <View style={styles.container}>
       <View>
       <Image
-            source={require("../static/logo.png")}
+            source={require("../static/logo.jpg")}
             style={styles.logo}
           />
       </View>
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   logo:{
-    width:200,
+    width:300,
     height:150,
     borderRadius:100,
   },

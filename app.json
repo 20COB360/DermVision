@@ -7,7 +7,7 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/static/logo.png",
+      "image": "./static/logo.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -29,6 +29,12 @@
         "expo-font",
         {
           "fonts": ["node_modules/@expo-google-fonts/inter/Inter_100Thin.ttf"]
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to upload them for prediction."
         }
       ]
     ]
