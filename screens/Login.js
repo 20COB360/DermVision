@@ -42,13 +42,11 @@ export default function Login({ navigation }) {
             <TextInput
               style={styles.input}
               placeholder="Email"
-              onChangeText={onChangeNumber}
               value={email}
             />
             <TextInput
               style={styles.input}
               placeholder="Password"
-              onChangeText={onChangeText}
               value={text}
             />
           </View>
@@ -84,11 +82,6 @@ const styles = StyleSheet.create({
     alignItems: "center", // Add alignItems for centering child elements horizontally
     backgroundColor: "beige",
   },
-  // toprightwrapper:{
-  //   display: 'flex',
-  //   flexDirection :'column',
-  //   alignContent : 'flex-end'
-  // },
   topright: {
     position: "absolute",
     top: 50,
@@ -113,8 +106,7 @@ const styles = StyleSheet.create({
   },
   greetingmsg: {
     fontSize: 60,
-    // fontWeight: "bold",
-    color: "#333341", // Use 'color' instead of 'fontcolor'
+    color: "#333341",
     margin: -8,
   },
 
