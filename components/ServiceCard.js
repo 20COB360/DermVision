@@ -11,8 +11,8 @@ export default function ServiceCard(props) {
           style={styles.cardimg}
         />
         <>
-        <Text style={styles.heading}>Prediction</Text>
-        <Text>Something</Text>
+          <Text style={styles.heading}>Prediction</Text>
+          <Text>Something</Text>
         </>
       </View>
     </View>
@@ -25,29 +25,30 @@ const styles = StyleSheet.create({
     backgroundColor: "antiquewhite",
     borderRadius: 20,
     overflow: "hidden",
+    margin: 10,
   },
-  ServiceCardText:{
-    textAlign:'center',
-    fontWeight:'bold',
-    fontSize:20,
-    borderBottomColor:'green',
-    borderBottomWidth:2,
-    marginBottom:10,
+  ServiceCardText: {
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: 20,
+    borderBottomColor: "green",
+    borderBottomWidth: 2,
+    marginBottom: 10,
   },
   ServiceCardInfo: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "center",
-    paddingBottom:10,
+    paddingBottom: 10,
   },
   cardimg: {
     width: "30%",
     height: 100,
-    borderColor:'green',
-    borderWidth:2,
+    borderColor: "green",
+    borderWidth: 2,
   },
-  heading:{
-    fontWeight:'bold',
+  heading: {
+    fontWeight: "bold",
   },
 });

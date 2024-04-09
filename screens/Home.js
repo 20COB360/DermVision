@@ -3,39 +3,11 @@ import { View, Text, StyleSheet, Image, Button } from "react-native";
 import { useState } from 'react';
 import Header from "../components/Header";
 function Home() {
-  const [image, setImage] = useState(null);
-
-  const uploadImage = async () => {
-    try {
-      // Let the user pick an image from their device
-      const result = await ImagePicker.launchImageLibraryAsync();
-
-      // If the user didn't pick an image, return
-      if (!result.cancelled) {
-        // Upload the image to your server
-        // ...
-
-        // Set the image state to the picked image
-        setImage(result.uri);
-      }
-    } catch (error) {
-      console.error("Error picking image:", error);
-      // Handle the error gracefully, e.g., show a message to the user
-    }
-  };
 
   return (
     <View style={styles.wrapper}>
       <Header />
-      <View style={styles.reviewbox}>
-        <View style={styles.reviewboxhead}>
-          <Image
-            source={require("../assets/static/20240221_000353_0016.png")}
-            style={styles.tripledot}
-          />
-        </View>
-        
-      </View>
+     
       <Button title="Upload Image"></Button>
     </View>
   );

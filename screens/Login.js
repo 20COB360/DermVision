@@ -8,13 +8,11 @@ import {
 } from "react-native";
 import React from "react";
 import { useState } from "react";
-import { firebase_auth } from "../firebaseConfig";
 export default function Login({ navigation }) {
 
   const [email, setEmail]=useState('');
   const [password, setPassword]=useState('');
   const [loading, setLoading]=useState('');
-  const auth = firebase_auth;
 
   const onPressFunction = () => console.log("pressed");
   return (
@@ -47,11 +45,11 @@ export default function Login({ navigation }) {
             <TextInput
               style={styles.input}
               placeholder="Password"
-              value={text}
+              value={Text}
             />
           </View>
           <View style={styles.miscbox}>
-            <BlinkerText style={styles.miscboxmsg}>Remember Me</BlinkerText>
+            <Text style={styles.miscboxmsg}>Remember Me</Text>
             <Text style={styles.miscboxmsg}>Forgot Password?</Text>
           </View>
 
