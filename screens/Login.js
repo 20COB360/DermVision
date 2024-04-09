@@ -8,11 +8,45 @@ import {
 } from "react-native";
 import React from "react";
 import { useState } from "react";
+import { firebase_auth } from "../firebaseConfig";
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 export default function Login({ navigation }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState("");
+  const auth = firebase_auth;
 
-  const [email, setEmail]=useState('');
-  const [password, setPassword]=useState('');
-  const [loading, setLoading]=useState('');
+  const signIn = async () => {
+    setLoading(true);
+    try {
+      const response = await signInWithEmailAndPassword(auth, email, password);
+      console.log(response);
+      navigation.navigate("Tabs");
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const signUp = async () => {
+    setLoading(true);
+    try {
+      const response = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const onPressFunction = () => console.log("pressed");
   return (
@@ -34,11 +68,18 @@ export default function Login({ navigation }) {
         <View style={styles.loginForm}>
           <Text style={styles.detailinfo}>Please enter details</Text>
           <View style={styles.inputbox}>
-            <TextInput style={styles.input} placeholder="Email" value={email} />
+            <TextInput
+              style={styles.input}
+              placeholder="Email"
+              value={email}
+              onChangeText={(text) => setEmail(text)}
+            />
             <TextInput
               style={styles.input}
               placeholder="Password"
-              value={Text}
+              value={password}
+              onChangeText={(text) => setPassword(text)}
+              secureTextEntry={true}
             />
           </View>
           <View style={styles.miscbox}>
@@ -47,14 +88,14 @@ export default function Login({ navigation }) {
           </View>
 
           <View style={styles.loginbtn}>
-            <Pressable onPress={() => navigation.navigate("Tabs")}>
+            <Pressable onPress={signIn}>
               <Text style={styles.loginbtnmsg}>Log In</Text>
             </Pressable>
           </View>
         </View>
       </View>
       <View style={styles.signupbtn}>
-        <Pressable onPress={onPressFunction}>
+        <Pressable onPress={signUp}>
           <Text>
             Don't have an account ?{" "}
             <Text style={{ fontSize: 15, fontWeight: "bold" }}>Sign Up</Text>
