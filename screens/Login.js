@@ -96,7 +96,7 @@ export default function Login({ navigation }) {
         </View>
       </View>
       <View style={styles.signupbtn}>
-        <Pressable onPress={signUp}>
+        <Pressable onPress={()=> navigation.navigate("SignUp")}>
           <Text>
             Don't have an account ?{" "}
             <Text style={{ fontSize: 15, fontWeight: "bold" }}>Sign Up</Text>
