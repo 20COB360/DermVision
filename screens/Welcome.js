@@ -1,5 +1,3 @@
-// import { StackScreenProps } from "@react-navigation/native";
-
 import * as React from "react";
 import {
   Pressable,
@@ -7,11 +5,8 @@ import {
   Image,
   Text,
   View,
-  Button,
-  ImageBackground,
   useWindowDimensions,
 } from "react-native";
-// import Text from "../components/BilnkerText";
 
 export default function Welcome({ navigation }) {
   const { height, width } = useWindowDimensions();
@@ -28,7 +23,7 @@ export default function Welcome({ navigation }) {
         <Pressable
           android_ripple={{ color: "#eee", radius: 60 }}
           style={styles.btn}
-          onPress={() => navigation.navigate("SelectLanguage")}
+          onPress={() => navigation.navigate("Login")}
         >
           <Text style={styles.btnText}>GET STARTED</Text>
           <Image
@@ -50,20 +45,16 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
   },
   gola: {
-    // position: "absolute",
     top: 180,
-    // right: -30,
     height: 150,
     width: "40%",
     alignSelf: "flex-end",
   },
   bulb: {
-    // position:'absolute',
     left: 5,
     bottom: 5,
     height: 350,
     width: 250,
-    // aspectRatio: 1,
     marginBottom: 0,
     alignSelf: "flex-start",
     shadowColor: "black",
@@ -72,14 +63,10 @@ const styles = StyleSheet.create({
   bottom: {
     justifyContent: "flex-start",
     alignItems: "flex-start",
-    // backgroundColor:"black",
-    // opacity:0.1
     width: "100",
   },
   heroText: {
     fontSize: 38,
-    // fontWeight:'bold',
-    // marginBottom:5,
     marginHorizontal: 10,
     alignSelf: "flex-start",
   },

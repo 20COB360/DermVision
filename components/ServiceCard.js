@@ -1,19 +1,19 @@
-import { StyleSheet, Text, View, Image, ImageBackground } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 
-export default function ServiceCard(props) {
+export default function ServiceCard({ date, imageUri, prediction }) {
   return (
     <View style={styles.ServiceCard}>
-      <Text style={styles.ServiceCardText}>Date: 15/08/2002</Text>
+      <Text style={styles.ServiceCardText}>Date: {new Date(date).toLocaleDateString()}</Text>
       <View style={styles.ServiceCardInfo}>
         <Image
-          source={require("../assets/static/_0_1225631.jpg")}
+          source={{ uri: imageUri }}
           style={styles.cardimg}
         />
-        <>
+        <View>
           <Text style={styles.heading}>Prediction</Text>
-          <Text>Something</Text>
-        </>
+          <Text style={styles.prediction}>{prediction}</Text>
+        </View>
       </View>
     </View>
   );
@@ -21,11 +21,12 @@ export default function ServiceCard(props) {
 
 const styles = StyleSheet.create({
   ServiceCard: {
-    width: "90%",
-    backgroundColor: "antiquewhite",
+    width: "100%",
+    backgroundColor: "white",
     borderRadius: 20,
     overflow: "hidden",
-    margin: 10,
+    marginBottom: 20,
+    padding: 10,
   },
   ServiceCardText: {
     textAlign: "center",
@@ -36,19 +37,25 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   ServiceCardInfo: {
-    display: "flex",
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "center",
     paddingBottom: 10,
   },
   cardimg: {
-    width: "30%",
+    width: 100,
     height: 100,
     borderColor: "green",
     borderWidth: 2,
   },
   heading: {
     fontWeight: "bold",
+    fontSize:25,
+    color:'darkgreen',
+  },
+  prediction: {
+    fontWeight: "bold",
+    fontSize:18,
+    color:'red',
   },
 });

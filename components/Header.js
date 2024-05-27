@@ -1,13 +1,39 @@
 import { StyleSheet, Text, View, Image } from "react-native";
-import React from "react";
-import Search from "../components/Search";
+import React, { useState } from "react";
+import { fetchUserData } from '../userData';
+import { useFocusEffect } from "@react-navigation/native"; // Import useFocusEffect
 
 export default function Header() {
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // Use useFocusEffect to fetch user data when the component gains focus
+  useFocusEffect(
+    React.useCallback(() => {
+      const getUserData = async () => {
+        try {
+          const data = await fetchUserData();
+          setUserData(data);
+        } catch (error) {
+          console.error(error);
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      getUserData();
+    }, [])
+  );
+
+  if (loading) {
+    return <Text>Loading user data...</Text>;
+  }
+
   return (
     <View style={styles.topbox}>
       <View style={styles.flexbox}>
         <View>
-          <Text style={styles.usergreeting}>Hi, User</Text>
+          <Text style={styles.usergreeting}>Hi, {userData.name}</Text>
         </View>
         <Image
           source={require("../assets/static/20240221_000353_0007.png")}

@@ -13,6 +13,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
+
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,29 +28,28 @@ export default function Login({ navigation }) {
       navigation.navigate("Tabs");
     } catch (error) {
       console.log(error);
-      alert('SignIn failed '+ error.message);
+      alert("SignIn failed " + error.message);
     } finally {
       setLoading(false);
     }
   };
 
-  const signUp = async () => {
-    setLoading(true);
-    try {
-      const response = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  // const signUp = async () => {
+  //   setLoading(true);
+  //   try {
+  //     const response = await createUserWithEmailAndPassword(
+  //       auth,
+  //       email,
+  //       password
+  //     );
+  //     console.log(response);
+  //   } catch (error) {
+  //     console.log(error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
-  const onPressFunction = () => console.log("pressed");
   return (
     <View style={styles.container}>
       <View style={styles.topright}>
@@ -96,7 +96,7 @@ export default function Login({ navigation }) {
         </View>
       </View>
       <View style={styles.signupbtn}>
-        <Pressable onPress={signUp}>
+        <Pressable onPress={() => navigation.navigate("SignUp")}>
           <Text>
             Don't have an account ?{" "}
             <Text style={{ fontSize: 15, fontWeight: "bold" }}>Sign Up</Text>
@@ -181,6 +181,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "bold",
     margin: 10,
+    zIndex: 10,
   },
   signupbtn: {
     position: "absolute",
